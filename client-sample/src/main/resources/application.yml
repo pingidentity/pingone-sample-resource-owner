@@ -1,0 +1,31 @@
+server:
+  port: 8080
+
+logging:
+  level:
+    root: INFO
+    org.springframework.web: INFO
+    org.springframework.security: INFO
+    org.springframework.security.oauth2: INFO
+
+ping:
+  resourceServerUrl: http://localhost:8000
+  environmentId: xxxxxxxx
+
+spring:
+  security:
+    oauth2:
+      client:
+        registration:
+          pingidentity:
+            client-name: pingidentity login
+            client-id: xxxxxxxx
+            client-secret: xxxxxxxx
+            provider: pingidentity
+            scope: openid,message
+            client-authentication-method: post
+            authorization-grant-type: authorization_code
+            redirect-uri-template: "{baseUrl}/login/oauth2/code/{registrationId}"
+        provider:
+          pingidentity:
+            issuer-uri: https://auth.pingone.com/xxxxxxxx/as/

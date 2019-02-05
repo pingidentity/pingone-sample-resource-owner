@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>PingOne for Authorization Client and Resource Owner Sample</title>
+    <link rel="stylesheet" href="https://cdn.shoelace.style/1.0.0-beta24/shoelace.css">
+    <script th:inline="javascript" th:replace="general :: sign-in-container-js">
+    </script>
+</head>
+
+<body>
+<div class="container">
+    <h2>PingOne for Customers Authorization Client and Resource Owner Sample</h2>
+
+    <div th:replace="general :: sign-in-container"></div>
+
+    <div th:if="${#authorization?.expression('isAuthenticated()')}">
+        <br>
+        <a id="messages" th:href="@{/api/messages}">Get some messages?</a>
+
+        <div th:if="${messages}">
+            <table class="table table-striped">
+                <thead>
+                <tr>
+                    <th>Owner</th>
+                    <th>Message text</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr th:each="message : ${messages}">
+                    <td th:text="${message.owner}">Owner</td>
+                    <td th:text="${message.text}">Message</td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+</body>
+</html>
