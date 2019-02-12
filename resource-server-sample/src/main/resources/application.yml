@@ -13,5 +13,5 @@ spring:
     oauth2:
       resourceserver:
         jwt:
-          jwk-set-uri: https://auth.pingone.com/xxxxxxxx/as/jwks
+          jwk-set-uri: https://auth.pingone.com/<environment_id>/as/jwks
 
