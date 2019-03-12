@@ -22,7 +22,6 @@
   </properties>
 
   <modules>
-    <module>spring-boot-sdk</module>
     <module>client-sample</module>
     <module>resource-server-sample</module>
   </modules>
