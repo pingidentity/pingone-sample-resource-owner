@@ -1,16 +1,16 @@
 # PingOne Identity Spring Authorization Client and Resource Server Example. 
 
-This sample demonstrate how [client](client-sample) accesses protected resources by presenting the access token to the [resource server (API)](resource-server-sample). 
+This sample demonstrate how [client](client-sample/README.md#authorization-client) accesses protected resources by presenting the access token to the [resource server (API)](resource-server-sample). 
 The resource server must validate the access token and ensure that it has not expired and that its scope covers the requested resource.
 
-In our case [resource server](resource-server-sample) application is a standalone service, so we need to configure it how to decode tokens.
+In our case [resource server](resource-server-sample/README.md#resource-server) application is a standalone service, so we need to configure it how to decode tokens.
 So, to specify which authorization server to use, we simply do:
 ```yaml
 security:
   oauth2:
     resourceserver:
       jwt:
-        issuer-uri: https://auth.pingone.com/xxxx/as/jwks
+        issuer-uri: https://auth.pingone.com/<environment_id>/as/jwks
 ```
 
 If resource server must be able to start up independently from the authorization server, then `issuer-uri` can be exchanged for `jwk-set-uri`.
