@@ -18,9 +18,11 @@ Since we are using Thymeleaf template engine, you can benefit from `spring.thyme
 2. Create a new Ping14C resource with a custom scope called `message` in Ping14C admin console (click: CONNECTIONS -> Resources).
   
 3. Create Native or Web application with:
- - `authorization_code` grant type
- - `openid` and `message` scopes
- - `Client Secret Post` token authentication method
+    - `Code` response type
+    - `Authorization Code` grant type
+    - `openid` and `message` scopes
+    - `Client Secret Post` token authentication method
+    - `http://localhost:8080/login/oauth2/code/pingidentity` redirect URI
  
 4. Enable both applications in Ping14C admin console.
 
@@ -48,5 +50,5 @@ mvn spring-boot:run
 cd client-sample
 mvn spring-boot:run
 ```
-and browse to: `http://localhost:8080/` to login with exited user. After successful login you should be able to get resources of [resource server](../resource-server-sample) 
-by clicking on `"Get some messages?"` link 
+and browse to: `http://localhost:8080/` to login with existing user. After successful login you should be able to get resources of [resource server](../resource-server-sample) 
+by clicking on `"Get some messages?"` link.
